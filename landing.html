@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soulbound — Find your person. Not just your next date.</title>
+  <meta name="description" content="A values-driven life partner app that matches you on what actually matters — curated by an AI coach who gets to know you over time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #09041a;
+      --surface:     #120828;
+      --surface2:    #1c0d3a;
+      --border:      #2e1860;
+      --primary:     #7c3aed;
+      --primary-l:   #a78bfa;
+      --accent:      #d97706;
+      --accent-l:    #fcd34d;
+      --text:        #f0ebff;
+      --text2:       #a991cc;
+      --text3:       #6b558a;
+      --success:     #10b981;
+      --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-full: 9999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(9, 4, 26, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(46, 24, 96, 0.5);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 800; color: var(--text); text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .nav-logo-mark {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--primary); color: #fff !important;
+      padding: 9px 22px; border-radius: var(--r-full);
+      font-weight: 600 !important; font-size: 14px !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: #6d28d9 !important; transform: translateY(-1px); }
+
+    /* ─── HERO ───────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 140px 24px 100px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.4);
+      border-radius: var(--r-full);
+      padding: 7px 18px; margin-bottom: 36px;
+      font-size: 13px; font-weight: 500; color: var(--primary-l);
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -2px; margin-bottom: 28px;
+      max-width: 820px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--primary-l), var(--accent-l));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text2); max-width: 540px; line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-ctas {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 64px;
+    }
+
+    .btn-primary {
+      background: var(--primary); color: #fff;
+      padding: 15px 34px; border-radius: var(--r-full);
+      font-size: 16px; font-weight: 700; text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.35);
+    }
+    .btn-primary:hover {
+      background: #6d28d9; transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(124,58,237,0.5);
+    }
+
+    .btn-ghost {
+      color: var(--text2); padding: 15px 28px;
+      border-radius: var(--r-full); font-size: 16px; font-weight: 500;
+      text-decoration: none; border: 1px solid var(--border);
+      background: transparent;
+      transition: color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--text3); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text3); font-size: 13px;
+    }
+    .hero-trust-divider { width: 1px; height: 14px; background: var(--border); }
+
+    /* ─── SECTION COMMON ─────────────────────────────────────────────── */
+    section { padding: 96px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--primary-l);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--text2); max-width: 520px; line-height: 1.7;
+    }
+    .section-header { margin-bottom: 64px; }
+
+    /* ─── STATS STRIP ─────────────────────────────────────────────────── */
+    .stats-strip {
+      background: var(--surface); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px;
+    }
+    .stats-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 42px; font-weight: 900; letter-spacing: -1.5px;
+      background: linear-gradient(135deg, var(--primary-l), var(--accent-l));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 14px; color: var(--text2); margin-top: 6px; }
+
+    /* ─── FEATURES ────────────────────────────────────────────────────── */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(124,58,237,0.15);
+    }
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: var(--r-md);
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .feature-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .feature-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+    /* ─── HOW IT WORKS ────────────────────────────────────────────────── */
+    .how-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .stages {
+      display: flex; flex-direction: column; gap: 0;
+      position: relative;
+    }
+    .stage {
+      display: grid; grid-template-columns: 56px 1fr; gap: 28px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stage:last-child { border-bottom: none; }
+
+    .stage-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: var(--primary-l);
+      flex-shrink: 0; margin-top: 4px;
+    }
+    .stage-body {}
+    .stage-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .stage-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .stage-desc { font-size: 15px; color: var(--text2); line-height: 1.7; max-width: 600px; }
+
+    /* ─── SAGE SECTION ────────────────────────────────────────────────── */
+    .sage-section {
+      background: linear-gradient(135deg, #1a0636 0%, #0d021f 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .sage-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center;
+    }
+    .sage-chat {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 28px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .chat-header {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .chat-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(124,58,237,0.2);
+      border: 1px solid var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .chat-name { font-size: 14px; font-weight: 600; }
+    .chat-status { font-size: 11px; color: var(--success); }
+
+    .msg { display: flex; gap: 10px; }
+    .msg-sage { align-self: flex-start; }
+    .msg-user { align-self: flex-end; flex-direction: row-reverse; }
+
+    .msg-bubble {
+      max-width: 78%; padding: 12px 16px;
+      border-radius: 16px; font-size: 14px; line-height: 1.6;
+    }
+    .msg-sage .msg-bubble {
+      background: var(--surface); border: 1px solid var(--border);
+      border-bottom-left-radius: 4px; color: var(--text);
+    }
+    .msg-user .msg-bubble {
+      background: var(--primary);
+      border-bottom-right-radius: 4px; color: #fff;
+    }
+    .msg-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(124,58,237,0.15); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0; margin-top: 4px;
+    }
+
+    .sage-content {}
+    .sage-content .section-sub { margin-bottom: 28px; }
+    .sage-points { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .sage-point { display: flex; gap: 14px; align-items: flex-start; }
+    .sage-point-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .sage-point-text strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .sage-point-text span { font-size: 13px; color: var(--text2); }
+
+    /* ─── PRICING ─────────────────────────────────────────────────────── */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      align-items: start;
+    }
+    .pricing-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 32px;
+      display: flex; flex-direction: column; gap: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary), 0 24px 64px rgba(124,58,237,0.2);
+    }
+    .pricing-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--primary-l);
+      background: rgba(124,58,237,0.15);
+      padding: 4px 12px; border-radius: var(--r-full);
+      display: inline-block; margin-bottom: 8px;
+    }
+    .pricing-name { font-size: 20px; font-weight: 700; }
+    .pricing-price { font-size: 42px; font-weight: 900; letter-spacing: -1px; }
+    .pricing-price span { font-size: 16px; font-weight: 500; color: var(--text2); }
+    .pricing-desc { font-size: 14px; color: var(--text2); }
+    .pricing-divider { height: 1px; background: var(--border); }
+    .pricing-features { display: flex; flex-direction: column; gap: 12px; }
+    .pricing-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text2); line-height: 1.5;
+    }
+    .pricing-feature::before {
+      content: '✓'; color: var(--success);
+      font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .pricing-cta {
+      display: block; text-align: center; text-decoration: none;
+      padding: 12px; border-radius: var(--r-full);
+      font-size: 15px; font-weight: 600;
+      transition: all 0.2s;
+    }
+    .pricing-cta-ghost {
+      border: 1px solid var(--border); color: var(--text2);
+    }
+    .pricing-cta-ghost:hover { border-color: var(--primary-l); color: var(--text); }
+    .pricing-cta-primary {
+      background: var(--primary); color: #fff;
+    }
+    .pricing-cta-primary:hover { background: #6d28d9; transform: translateY(-1px); }
+
+    /* ─── FAQ ─────────────────────────────────────────────────────────── */
+    .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-btn {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0; text-align: left; gap: 16px;
+    }
+    .faq-q { font-size: 16px; font-weight: 600; color: var(--text); }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--primary-l); flex-shrink: 0;
+      transition: transform 0.25s, background 0.2s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--primary); border-color: var(--primary); color: #fff; }
+    .faq-a {
+      font-size: 15px; color: var(--text2); line-height: 1.75;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding-bottom 0.25s;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 24px; }
+
+    /* ─── CTA BANNER ──────────────────────────────────────────────────── */
+    .cta-banner {
+      background: linear-gradient(135deg, #2d0d6b 0%, #1a0636 100%);
+      border-top: 1px solid rgba(124,58,237,0.4);
+      border-bottom: 1px solid rgba(124,58,237,0.4);
+      text-align: center; padding: 96px 24px;
+    }
+    .cta-banner h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; }
+    .cta-banner p { font-size: 18px; color: var(--text2); margin-bottom: 40px; }
+
+    .waitlist-form {
+      display: flex; gap: 12px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center;
+    }
+    .waitlist-input {
+      flex: 1; min-width: 220px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      border-radius: var(--r-full); padding: 14px 22px;
+      font-size: 15px; color: var(--text); outline: none;
+      transition: border-color 0.2s;
+    }
+    .waitlist-input::placeholder { color: var(--text3); }
+    .waitlist-input:focus { border-color: var(--primary-l); }
+
+    /* ─── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 56px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 48px; margin-bottom: 48px; flex-wrap: wrap;
+    }
+    .footer-brand { max-width: 280px; }
+    .footer-brand .nav-logo { margin-bottom: 14px; font-size: 18px; }
+    .footer-tagline { font-size: 14px; color: var(--text2); line-height: 1.6; }
+
+    .footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 16px; letter-spacing: 0.3px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 32px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 16px;
+    }
+    .footer-legal { font-size: 13px; color: var(--text3); }
+    .footer-social { display: flex; gap: 16px; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .social-link:hover { border-color: var(--primary-l); transform: translateY(-2px); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .sage-inner { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-top { flex-direction: column; }
+      .footer-cols { gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 64px 20px; }
+      .hero { padding: 120px 20px 80px; }
+      .hero-ctas { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">∞</div>
+    Soulbound
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#sage">Meet Sage</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="hero-badge-dot"></div>
+    Now accepting early members
+  </div>
+  <h1>Find your <em>person.</em><br>Not just your next date.</h1>
+  <p class="hero-sub">
+    A values-driven life partner app that matches you on what actually matters — guided every step of the way by an AI coach who knows you deeply.
+  </p>
+  <div class="hero-ctas">
+    <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+    <a href="#how-it-works" class="btn-ghost">See how it works →</a>
+  </div>
+  <div class="hero-trust">
+    <span>🔒 ID-verified profiles</span>
+    <div class="hero-trust-divider"></div>
+    <span>🧠 AI-coached every step</span>
+    <div class="hero-trust-divider"></div>
+    <span>✨ No swiping. Ever.</span>
+  </div>
+</section>
+
+<!-- ─── STATS ─────────────────────────────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Compatibility signals measured</div>
+    </div>
+    <div>
+      <div class="stat-num">3–5</div>
+      <div class="stat-label">Curated matches per month — not hundreds</div>
+    </div>
+    <div>
+      <div class="stat-num">14</div>
+      <div class="stat-label">Days of guided blind introduction before reveal</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURES ──────────────────────────────────────────────────────────── -->
+<section id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Built for people who are<br>done playing games.</h2>
+      <p class="section-sub">Every feature is designed around one outcome: a relationship that lasts.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧬</div>
+        <div class="feature-title">Deep Compatibility Engine</div>
+        <p class="feature-desc">Matched across values, personality (Big Five), attachment style, love languages, life goals, faith, finances, and more. You see exactly why you match — no mystery algorithm.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌸</div>
+        <div class="feature-title">Blind Introduction Sequence</div>
+        <p class="feature-desc">Your AI coach shares meaningful windows into your match over 14 days — before you ever see a photo. Fall for who they are, not how they look.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">Sage, Your AI Coach</div>
+        <p class="feature-desc">A persistent, emotionally intelligent coaching companion that learns you over time. Check-ins, self-discovery prompts, match coaching, and guidance at every stage.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Trust & Verification</div>
+        <p class="feature-desc">Every member is ID and photo verified. Profile completeness scores keep quality high. Report and block tools keep you safe. No bots. No ghosts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <div class="feature-title">Staged, Time-Gated Connection</div>
+        <p class="feature-desc">Four stages from blind intro to in-person meeting — each with a minimum timeline and mutual opt-in. Intentional pacing that builds real trust.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💫</div>
+        <div class="feature-title">Curated, Not Endless</div>
+        <p class="feature-desc">3–5 carefully selected matches per month. We don't reward volume — we reward depth. The fewer matches you see, the more seriously you consider each one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ───────────────────────────────────────────────────────── -->
+<section id="how-it-works" class="how-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Four stages. One direction.</h2>
+      <p class="section-sub">Every connection follows a guided path designed to build real intimacy — not just chemistry.</p>
+    </div>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <div class="stage-body">
+          <div class="stage-tag">Days 1–14</div>
+          <div class="stage-title">The Blind Introduction</div>
+          <p class="stage-desc">Sage introduces your match through daily notes — what they love, how they'd treat you, how they handle conflict — before you ever see their photo. You fall for the person, not the profile.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <div class="stage-body">
+          <div class="stage-tag">Mutual Interest</div>
+          <div class="stage-title">The Profile Reveal</div>
+          <p class="stage-desc">If both sides express interest after the introduction, profiles are revealed simultaneously. You see the full picture — photo, occupation, location, and your complete compatibility breakdown.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">3</div>
+        <div class="stage-body">
+          <div class="stage-tag">Minimum 2 Weeks</div>
+          <div class="stage-title">AI-Coached Conversation</div>
+          <p class="stage-desc">Guided messaging with Sage-suggested prompts. No personal info shared yet. Real getting-to-know-you conversations without the pressure of a first date. Minimum two weeks before the next stage unlocks.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">4</div>
+        <div class="stage-body">
+          <div class="stage-tag">Mutual Opt-In</div>
+          <div class="stage-title">Meeting in Person</div>
+          <p class="stage-desc">When both people are ready, Sage helps you plan your first meeting. If either of you isn't ready, Sage helps you communicate that with honesty and kindness. Nobody gets ghosted here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SAGE ───────────────────────────────────────────────────────────────── -->
+<section id="sage" class="sage-section">
+  <div class="container">
+    <div class="sage-inner">
+      <!-- Mock chat UI -->
+      <div class="sage-chat">
+        <div class="chat-header">
+          <div class="chat-avatar">🧠</div>
+          <div>
+            <div class="chat-name">Sage</div>
+            <div class="chat-status">● Your matchmaking coach</div>
+          </div>
+        </div>
+        <div class="msg msg-sage">
+          <div class="msg-icon">🧠</div>
+          <div class="msg-bubble">Hey Alex — good to see you. How are you actually feeling this week? Not the surface answer. The real one.</div>
+        </div>
+        <div class="msg msg-user">
+          <div class="msg-bubble">Honestly? I'm nervous about Sophia. She sounds incredible but I keep second-guessing myself.</div>
+          <div class="msg-icon">👤</div>
+        </div>
+        <div class="msg msg-sage">
+          <div class="msg-icon">🧠</div>
+          <div class="msg-bubble">That nervousness is worth looking at. Is it doubt about her — or doubt about whether you're ready to let someone in?</div>
+        </div>
+        <div class="msg msg-user">
+          <div class="msg-bubble">...the second one. Definitely the second one.</div>
+          <div class="msg-icon">👤</div>
+        </div>
+        <div class="msg msg-sage">
+          <div class="msg-icon">🧠</div>
+          <div class="msg-bubble">Good. That's real. Let's sit with that — what does "letting someone in" look like for you when it feels safe?</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="sage-content">
+        <div class="section-label">Meet Sage</div>
+        <h2 class="section-title">Your coach.<br>Not a chatbot.</h2>
+        <p class="section-sub">Sage is a persistent AI coaching companion powered by Claude. She remembers every conversation, learns how you're wired, and shows up for you at every stage of your journey.</p>
+        <div class="sage-points">
+          <div class="sage-point">
+            <div class="sage-point-icon">💭</div>
+            <div class="sage-point-text">
+              <strong>Weekly emotional check-ins</strong>
+              <span>Sage surfaces patterns in how you're feeling week over week — not just about your matches, but about yourself.</span>
+            </div>
+          </div>
+          <div class="sage-point">
+            <div class="sage-point-icon">🔍</div>
+            <div class="sage-point-text">
+              <strong>Self-discovery prompts</strong>
+              <span>Deep questions designed to help you articulate what you actually want — not what you think you should want.</span>
+            </div>
+          </div>
+          <div class="sage-point">
+            <div class="sage-point-icon">🧭</div>
+            <div class="sage-point-text">
+              <strong>Match coaching at every stage</strong>
+              <span>From the first drip note to planning your in-person meeting, Sage guides you with wisdom, not scripts.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ────────────────────────────────────────────────────────────── -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Invest in the relationship<br>you actually want.</h2>
+      <p class="section-sub">We charge more than a dating app on purpose. Serious members deserve serious infrastructure.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="pricing-card">
+        <div>
+          <div class="pricing-tag">Free</div>
+          <div class="pricing-name">Explorer</div>
+        </div>
+        <div class="pricing-price">$0</div>
+        <p class="pricing-desc">Get a feel for the platform and meet Sage.</p>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature">1 curated match per month</div>
+          <div class="pricing-feature">Blind introduction sequence</div>
+          <div class="pricing-feature">Basic compatibility snapshot</div>
+          <div class="pricing-feature">Weekly AI check-in with Sage</div>
+          <div class="pricing-feature">ID & photo verification</div>
+        </div>
+        <a href="#waitlist" class="pricing-cta pricing-cta-ghost">Join Waitlist</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card featured">
+        <div>
+          <div class="pricing-tag">Most Popular</div>
+          <div class="pricing-name">Premium</div>
+        </div>
+        <div class="pricing-price">$99 <span>/ month</span></div>
+        <p class="pricing-desc">For serious people ready to find their person.</p>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature">2 curated matches per month</div>
+          <div class="pricing-feature">Full compatibility breakdown</div>
+          <div class="pricing-feature">Deeper AI coaching sessions</div>
+          <div class="pricing-feature">Guided conversation prompts</div>
+          <div class="pricing-feature">Priority match queue</div>
+          <div class="pricing-feature">Everything in Free</div>
+        </div>
+        <a href="#waitlist" class="pricing-cta pricing-cta-primary">Get Early Access</a>
+      </div>
+
+      <!-- Premium+ -->
+      <div class="pricing-card">
+        <div>
+          <div class="pricing-tag">Premium+</div>
+          <div class="pricing-name">Concierge</div>
+        </div>
+        <div class="pricing-price">$250 <span>/ month</span></div>
+        <p class="pricing-desc">White-glove experience for those who want it all.</p>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature">3 curated matches per month</div>
+          <div class="pricing-feature">Unlimited AI coaching</div>
+          <div class="pricing-feature">Curated date experiences</div>
+          <div class="pricing-feature">Restaurant & Uber credits</div>
+          <div class="pricing-feature">Dedicated match concierge</div>
+          <div class="pricing-feature">Everything in Premium</div>
+        </div>
+        <a href="#waitlist" class="pricing-cta pricing-cta-ghost">Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+<section id="faq" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header" style="text-align: center;">
+      <div class="section-label" style="text-align:center;">FAQ</div>
+      <h2 class="section-title">Questions we get a lot.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-q">How is Soulbound different from Hinge or Bumble?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Soulbound isn't a dating app — it's a matchmaking platform. You don't swipe. You don't browse. You receive 3–5 deeply vetted introductions per month, guided by an AI coach who knows your full profile. The process is slower and more intentional by design. We optimize for long-term compatibility, not engagement time.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-q">What is Sage, exactly?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Sage is your AI matchmaking coach — a persistent conversational companion powered by Claude (Anthropic). She remembers every conversation, learns how you're emotionally wired over time, and coaches you through every stage of your journey: self-discovery, match introductions, guided conversations, and meeting in person. She's the core of the product, not an add-on.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-q">Why does the blind introduction last 14 days?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Research consistently shows that physical attraction can override deeper compatibility signals when people see a photo first. By introducing you to who someone is before how they look, you form a genuine impression grounded in values, personality, and connection. Profiles are only revealed when both sides express mutual interest — after 14 days of thoughtful introduction.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-q">What if I'm not interested in a match?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          You can pass at any point in the process. If you decline after showing interest, Sage helps you write a kind and constructive message to your match. Nobody gets ghosted on Soulbound. Graceful exits are a core part of how we work.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-q">How does verification work?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Every member completes ID and photo verification before their profile is made available for matching. We also score profile completeness — members with incomplete profiles simply aren't shown as matches until they finish. This keeps the pool high-quality for everyone.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-q">Is my data private and secure?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Yes. Your profile, assessment data, and coaching conversations are encrypted and never sold to third parties. Personal contact information is never shared between members until both parties mutually opt into meeting in person. We take your safety seriously at every layer.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BANNER ────────────────────────────────────────────────────────── -->
+<section id="waitlist" class="cta-banner">
+  <h2>Ready to meet your person?</h2>
+  <p>Join the waitlist. We'll let you know when we're ready for you.</p>
+  <form class="waitlist-form" onsubmit="handleWaitlist(event)">
+    <input
+      type="email"
+      class="waitlist-input"
+      placeholder="your@email.com"
+      required
+      id="waitlist-email"
+    />
+    <button type="submit" class="btn-primary" style="white-space:nowrap;">Join Waitlist</button>
+  </form>
+  <p id="waitlist-success" style="display:none; margin-top:20px; color: var(--success); font-weight:600;">
+    ✓ You're on the list. We'll be in touch.
+  </p>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-mark">∞</div>
+          Soulbound
+        </a>
+        <p class="footer-tagline">A values-driven life partner platform. Find your person — not just your next date.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#sage">Meet Sage</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Safety</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 Soulbound. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="#" class="social-link" title="Instagram">📸</a>
+        <a href="#" class="social-link" title="TikTok">🎵</a>
+        <a href="#" class="social-link" title="YouTube">▶️</a>
+        <a href="#" class="social-link" title="X / Twitter">✖️</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── FAQ accordion ─────────────────────────────────────────────────────
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ─── Waitlist form ─────────────────────────────────────────────────────
+  function handleWaitlist(e) {
+    e.preventDefault();
+    document.getElementById('waitlist-email').style.display = 'none';
+    e.target.querySelector('button').style.display = 'none';
+    document.getElementById('waitlist-success').style.display = 'block';
+    // In production: POST email to your backend / Typeform / Mailchimp
+  }
+
+  // ─── Nav scroll effect ─────────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(9, 4, 26, 0.95)';
+    } else {
+      nav.style.background = 'rgba(9, 4, 26, 0.7)';
+    }
+  });
+</script>
+
+</body>
+</html>
