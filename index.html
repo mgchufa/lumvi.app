@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumvi — Find your person. Not just your next date.</title>
-  <meta name="description" content="A values-driven life partner app that matches you on what actually matters — curated by an AI coach who gets to know you over time." />
+  <title>Lumvi — Find your life partner. Not just your next date.</title>
+  <meta name="description" content="A values-driven life partner app that matches you on what actually matters — guided by Lumvi, your AI confidant who gets to know you at your core." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -260,70 +260,28 @@
     .stage-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     .stage-desc { font-size: 15px; color: var(--text2); line-height: 1.7; max-width: 600px; }
 
-    /* ─── SAGE SECTION ────────────────────────────────────────────────── */
-    .sage-section {
+    /* ─── LUMVI SECTION ────────────────────────────────────────────────── */
+    .lumvi-section {
       background: linear-gradient(135deg, #1a0636 0%, #0d021f 100%);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    .sage-inner {
+    .lumvi-inner {
       display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
       align-items: center;
     }
-    .sage-chat {
-      background: var(--surface2); border: 1px solid var(--border);
-      border-radius: var(--r-lg); padding: 28px;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .chat-header {
-      display: flex; align-items: center; gap: 12px;
-      padding-bottom: 16px; border-bottom: 1px solid var(--border);
-    }
-    .chat-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(124,58,237,0.2);
-      border: 1px solid var(--primary);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-    }
-    .chat-name { font-size: 14px; font-weight: 600; }
-    .chat-status { font-size: 11px; color: var(--success); }
-
-    .msg { display: flex; gap: 10px; }
-    .msg-sage { align-self: flex-start; }
-    .msg-user { align-self: flex-end; flex-direction: row-reverse; }
-
-    .msg-bubble {
-      max-width: 78%; padding: 12px 16px;
-      border-radius: 16px; font-size: 14px; line-height: 1.6;
-    }
-    .msg-sage .msg-bubble {
-      background: var(--surface); border: 1px solid var(--border);
-      border-bottom-left-radius: 4px; color: var(--text);
-    }
-    .msg-user .msg-bubble {
-      background: var(--primary);
-      border-bottom-right-radius: 4px; color: #fff;
-    }
-    .msg-icon {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: rgba(124,58,237,0.15); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; flex-shrink: 0; margin-top: 4px;
-    }
-
-    .sage-content {}
-    .sage-content .section-sub { margin-bottom: 28px; }
-    .sage-points { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
-    .sage-point { display: flex; gap: 14px; align-items: flex-start; }
-    .sage-point-icon {
+    .lumvi-content {}
+    .lumvi-content .section-sub { margin-bottom: 28px; }
+    .lumvi-points { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .lumvi-point { display: flex; gap: 14px; align-items: flex-start; }
+    .lumvi-point-icon {
       width: 36px; height: 36px; border-radius: 10px;
       background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
     }
-    .sage-point-text strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-    .sage-point-text span { font-size: 13px; color: var(--text2); }
+    .lumvi-point-text strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .lumvi-point-text span { font-size: 13px; color: var(--text2); }
 
     /* ─── PRICING ─────────────────────────────────────────────────────── */
     .pricing-grid {
@@ -468,7 +426,7 @@
       .nav-links { display: none; }
       .features-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .sage-inner { grid-template-columns: 1fr; }
+      .lumvi-inner { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-top { flex-direction: column; }
       .footer-cols { gap: 40px; }
@@ -492,7 +450,7 @@
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#sage">Meet Sage</a></li>
+    <li><a href="#lumvi">Meet Lumvi</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
@@ -503,22 +461,22 @@
 <section class="hero">
   <div class="hero-badge">
     <div class="hero-badge-dot"></div>
-    Now accepting early members
+    Join 17,712 others on the waitlist
   </div>
-  <h1>Find your <em>person.</em><br>Not just your next date.</h1>
+  <h1>Find your <em>life partner.</em><br>Not just your next date.</h1>
   <p class="hero-sub">
-    A values-driven life partner app that matches you on what actually matters — guided every step of the way by an AI coach who knows you deeply.
+    A values-first app that matches you on what actually matters. Guided every step of the way by Lumvi who gets to know you at your core by encouraging self-discovery.
   </p>
   <div class="hero-ctas">
-    <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+    <a href="#waitlist" class="btn-primary">Join Now</a>
     <a href="#how-it-works" class="btn-ghost">See how it works →</a>
   </div>
   <div class="hero-trust">
-    <span>🔒 ID-verified profiles</span>
+    <span>🔒 100% ID Verified Profiles</span>
     <div class="hero-trust-divider"></div>
-    <span>🧠 AI-coached every step</span>
+    <span>🧠 Coached by Lumvi</span>
     <div class="hero-trust-divider"></div>
-    <span>✨ No swiping. Ever.</span>
+    <span>✨ No Swiping. Ever.</span>
   </div>
 </section>
 
@@ -526,16 +484,16 @@
 <div class="stats-strip">
   <div class="stats-grid">
     <div>
-      <div class="stat-num">40+</div>
+      <div class="stat-num">100+</div>
       <div class="stat-label">Compatibility signals measured</div>
     </div>
     <div>
-      <div class="stat-num">3–5</div>
-      <div class="stat-label">Curated matches per month — not hundreds</div>
+      <div class="stat-num">Up to 3</div>
+      <div class="stat-label">Curated connections per month — not hundreds</div>
     </div>
     <div>
-      <div class="stat-num">14</div>
-      <div class="stat-label">Days of guided blind introduction before reveal</div>
+      <div class="stat-num">7</div>
+      <div class="stat-label">Days of guided blind introductions before full profile reveal</div>
     </div>
   </div>
 </div>
@@ -545,39 +503,39 @@
   <div class="container">
     <div class="section-header">
       <div class="section-label">Features</div>
-      <h2 class="section-title">Built for people who are<br>done playing games.</h2>
-      <p class="section-sub">Every feature is designed around one outcome: a relationship that lasts.</p>
+      <h2 class="section-title">Built for people who are done<br>with endless swiping with 0 genuine connections.</h2>
+      <p class="section-sub">Every feature is designed around one outcome: a relationship with a partner you can build a long abundant life with.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">🧬</div>
-        <div class="feature-title">Deep Compatibility Engine</div>
-        <p class="feature-desc">Matched across values, personality (Big Five), attachment style, love languages, life goals, faith, finances, and more. You see exactly why you match — no mystery algorithm.</p>
+        <div class="feature-title">Intelligent Compatibility Engine</div>
+        <p class="feature-desc">Matched across personal values, personality (Big Five), attachment style, love languages, life goals, faith, finances, and more. Lumvi builds your identity with you through casual conversation. You see exactly why you match — no mystery algorithm.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🌸</div>
         <div class="feature-title">Blind Introduction Sequence</div>
-        <p class="feature-desc">Your AI coach shares meaningful windows into your match over 14 days — before you ever see a photo. Fall for who they are, not how they look.</p>
+        <p class="feature-desc">Lumvi will share meaningful windows into your connection over 7 days before you ever see a full profile. Fall for who they are, their values, their visions, & their passions.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🧠</div>
-        <div class="feature-title">Sage, Your AI Coach</div>
-        <p class="feature-desc">A persistent, emotionally intelligent coaching companion that learns you over time. Check-ins, self-discovery prompts, match coaching, and guidance at every stage.</p>
+        <div class="feature-title">Lumvi, Your Closest Confidant</div>
+        <p class="feature-desc">A persistent, emotionally intelligent companion that learns you over time. Check-ins, self discovery, relationship coaching, & guidance at every stage.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🛡️</div>
         <div class="feature-title">Trust & Verification</div>
-        <p class="feature-desc">Every member is ID and photo verified. Profile completeness scores keep quality high. Report and block tools keep you safe. No bots. No ghosts.</p>
+        <p class="feature-desc">Every member is ID and photo verified. Profile completeness is required and keeps quality high. Post in-person check-ins keep standards high. No bots. No ghosts.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📅</div>
-        <div class="feature-title">Staged, Time-Gated Connection</div>
-        <p class="feature-desc">Four stages from blind intro to in-person meeting — each with a minimum timeline and mutual opt-in. Intentional pacing that builds real trust.</p>
+        <div class="feature-title">Stages, Time-Gated Connection</div>
+        <p class="feature-desc">Four stages from blind intro to in-person meeting. Each with a minimum timeline and mutual opt-in. Intentional pacing that builds trust and doesn't waste either person's time.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💫</div>
         <div class="feature-title">Curated, Not Endless</div>
-        <p class="feature-desc">3–5 carefully selected matches per month. We don't reward volume — we reward depth. The fewer matches you see, the more seriously you consider each one.</p>
+        <p class="feature-desc">3 carefully selected connections per month. We don't reward volume, we reward depth. The fewer connections you see, the more seriously you consider each one.</p>
       </div>
     </div>
   </div>
@@ -588,32 +546,32 @@
   <div class="container">
     <div class="section-header">
       <div class="section-label">How It Works</div>
-      <h2 class="section-title">Four stages. One direction.</h2>
-      <p class="section-sub">Every connection follows a guided path designed to build real intimacy — not just chemistry.</p>
+      <h2 class="section-title">Four Stages. One Outcome.</h2>
+      <p class="section-sub">Every connection follows a guided path designed to build real intimacy, not just chemistry.</p>
     </div>
     <div class="stages">
       <div class="stage">
         <div class="stage-num">1</div>
         <div class="stage-body">
-          <div class="stage-tag">Days 1–14</div>
+          <div class="stage-tag">Days 1–7</div>
           <div class="stage-title">The Blind Introduction</div>
-          <p class="stage-desc">Sage introduces your match through daily notes — what they love, how they'd treat you, how they handle conflict — before you ever see their photo. You fall for the person, not the profile.</p>
+          <p class="stage-desc">Lumvi introduces your match through daily notes, what they love, how they'd treat you, how they handle conflict, before you ever see their photo. You fall for the person, not the profile.</p>
         </div>
       </div>
       <div class="stage">
         <div class="stage-num">2</div>
         <div class="stage-body">
           <div class="stage-tag">Mutual Interest</div>
-          <div class="stage-title">The Profile Reveal</div>
-          <p class="stage-desc">If both sides express interest after the introduction, profiles are revealed simultaneously. You see the full picture — photo, occupation, location, and your complete compatibility breakdown.</p>
+          <div class="stage-title">Profile Reveal</div>
+          <p class="stage-desc">If both sides express interest after the introduction, profiles are revealed simultaneously. You see the full picture, photo, career, location, and your complete personalized compatibility breakdown.</p>
         </div>
       </div>
       <div class="stage">
         <div class="stage-num">3</div>
         <div class="stage-body">
-          <div class="stage-tag">Minimum 2 Weeks</div>
-          <div class="stage-title">AI-Coached Conversation</div>
-          <p class="stage-desc">Guided messaging with Sage-suggested prompts. No personal info shared yet. Real getting-to-know-you conversations without the pressure of a first date. Minimum two weeks before the next stage unlocks.</p>
+          <div class="stage-tag">Mutual Opt-In</div>
+          <div class="stage-title">Guided Conversations</div>
+          <p class="stage-desc">Lumvi guided conversations with your connection. Real getting-to-know-you conversations without the pressure of an immediate first date.</p>
         </div>
       </div>
       <div class="stage">
@@ -621,73 +579,41 @@
         <div class="stage-body">
           <div class="stage-tag">Mutual Opt-In</div>
           <div class="stage-title">Meeting in Person</div>
-          <p class="stage-desc">When both people are ready, Sage helps you plan your first meeting. If either of you isn't ready, Sage helps you communicate that with honesty and kindness. Nobody gets ghosted here.</p>
+          <p class="stage-desc">When both people are ready, Lumvi helps you plan your first date. If either of you isn't ready, Lumvi guides your communication with honesty and kindness. Nobody gets ghosted here.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── SAGE ───────────────────────────────────────────────────────────────── -->
-<section id="sage" class="sage-section">
+<!-- ─── LUMVI ───────────────────────────────────────────────────────────────── -->
+<section id="lumvi" class="lumvi-section">
   <div class="container">
-    <div class="sage-inner">
-      <!-- Mock chat UI -->
-      <div class="sage-chat">
-        <div class="chat-header">
-          <div class="chat-avatar">🧠</div>
-          <div>
-            <div class="chat-name">Sage</div>
-            <div class="chat-status">● Your matchmaking coach</div>
-          </div>
-        </div>
-        <div class="msg msg-sage">
-          <div class="msg-icon">🧠</div>
-          <div class="msg-bubble">Hey Alex — good to see you. How are you actually feeling this week? Not the surface answer. The real one.</div>
-        </div>
-        <div class="msg msg-user">
-          <div class="msg-bubble">Honestly? I'm nervous about Sophia. She sounds incredible but I keep second-guessing myself.</div>
-          <div class="msg-icon">👤</div>
-        </div>
-        <div class="msg msg-sage">
-          <div class="msg-icon">🧠</div>
-          <div class="msg-bubble">That nervousness is worth looking at. Is it doubt about her — or doubt about whether you're ready to let someone in?</div>
-        </div>
-        <div class="msg msg-user">
-          <div class="msg-bubble">...the second one. Definitely the second one.</div>
-          <div class="msg-icon">👤</div>
-        </div>
-        <div class="msg msg-sage">
-          <div class="msg-icon">🧠</div>
-          <div class="msg-bubble">Good. That's real. Let's sit with that — what does "letting someone in" look like for you when it feels safe?</div>
-        </div>
-      </div>
-
-      <!-- Content -->
-      <div class="sage-content">
-        <div class="section-label">Meet Sage</div>
-        <h2 class="section-title">Your coach.<br>Not a chatbot.</h2>
-        <p class="section-sub">Sage is a persistent AI coaching companion powered by Claude. She remembers every conversation, learns how you're wired, and shows up for you at every stage of your journey.</p>
-        <div class="sage-points">
-          <div class="sage-point">
-            <div class="sage-point-icon">💭</div>
-            <div class="sage-point-text">
+    <div class="lumvi-inner">
+      <div class="lumvi-content">
+        <div class="section-label">Your Confidant</div>
+        <h2 class="section-title">Your Most<br>Trusted Companion</h2>
+        <p class="section-sub">Lumvi is a persistent companion powered by the latest learnings of relationship success & longevity. They remember every conversation, learn how you're wired, and show up for you at every stage of your journey towards building a long lasting romantic relationship.</p>
+        <div class="lumvi-points">
+          <div class="lumvi-point">
+            <div class="lumvi-point-icon">💭</div>
+            <div class="lumvi-point-text">
               <strong>Weekly emotional check-ins</strong>
-              <span>Sage surfaces patterns in how you're feeling week over week — not just about your matches, but about yourself.</span>
+              <span>Lumvi surfaces patterns in how you're feeling week over week, not just about your connections, but about yourself.</span>
             </div>
           </div>
-          <div class="sage-point">
-            <div class="sage-point-icon">🔍</div>
-            <div class="sage-point-text">
-              <strong>Self-discovery prompts</strong>
-              <span>Deep questions designed to help you articulate what you actually want — not what you think you should want.</span>
+          <div class="lumvi-point">
+            <div class="lumvi-point-icon">🔍</div>
+            <div class="lumvi-point-text">
+              <strong>Self Discovery</strong>
+              <span>Lumvi will encourage answers to deep questions designed to help you articulate what you actually desire, not what you think you should want.</span>
             </div>
           </div>
-          <div class="sage-point">
-            <div class="sage-point-icon">🧭</div>
-            <div class="sage-point-text">
-              <strong>Match coaching at every stage</strong>
-              <span>From the first drip note to planning your in-person meeting, Sage guides you with wisdom, not scripts.</span>
+          <div class="lumvi-point">
+            <div class="lumvi-point-icon">🧭</div>
+            <div class="lumvi-point-text">
+              <strong>Guidance at every stage</strong>
+              <span>From the first drip note to planning your in-person meeting, Lumvi guides you with wisdom, not scripts.</span>
             </div>
           </div>
         </div>
@@ -701,25 +627,24 @@
   <div class="container">
     <div class="section-header">
       <div class="section-label">Pricing</div>
-      <h2 class="section-title">Invest in the relationship<br>you actually want.</h2>
-      <p class="section-sub">We charge more than a dating app on purpose. Serious members deserve serious infrastructure.</p>
+      <h2 class="section-title">Invest in the life<br>you want to build.</h2>
+      <p class="section-sub">We charge more than a dating app on purpose because we're not designed for endless engagement. Serious members deserve meaningful outcomes.</p>
     </div>
     <div class="pricing-grid">
-      <!-- Free -->
+      <!-- Explorer -->
       <div class="pricing-card">
         <div>
           <div class="pricing-tag">Free</div>
           <div class="pricing-name">Explorer</div>
         </div>
-        <div class="pricing-price">$0</div>
-        <p class="pricing-desc">Get a feel for the platform and meet Sage.</p>
+        <p class="pricing-desc">Get a feel for the platform and meet Lumvi</p>
         <div class="pricing-divider"></div>
         <div class="pricing-features">
-          <div class="pricing-feature">1 curated match per month</div>
-          <div class="pricing-feature">Blind introduction sequence</div>
-          <div class="pricing-feature">Basic compatibility snapshot</div>
-          <div class="pricing-feature">Weekly AI check-in with Sage</div>
-          <div class="pricing-feature">ID & photo verification</div>
+          <div class="pricing-feature">1 curated connection per month</div>
+          <div class="pricing-feature">Blind introductions</div>
+          <div class="pricing-feature">Basic compatibility snapshots</div>
+          <div class="pricing-feature">Weekly check-ins with Lumvi</div>
+          <div class="pricing-feature">ID & photo verification required</div>
         </div>
         <a href="#waitlist" class="pricing-cta pricing-cta-ghost">Join Waitlist</a>
       </div>
@@ -730,36 +655,33 @@
           <div class="pricing-tag">Most Popular</div>
           <div class="pricing-name">Premium</div>
         </div>
-        <div class="pricing-price">$99 <span>/ month</span></div>
-        <p class="pricing-desc">For serious people ready to find their person.</p>
+        <p class="pricing-desc">For serious people ready to find their life partner</p>
         <div class="pricing-divider"></div>
         <div class="pricing-features">
-          <div class="pricing-feature">2 curated matches per month</div>
+          <div class="pricing-feature">2 curated connections per month</div>
           <div class="pricing-feature">Full compatibility breakdown</div>
-          <div class="pricing-feature">Deeper AI coaching sessions</div>
-          <div class="pricing-feature">Guided conversation prompts</div>
-          <div class="pricing-feature">Priority match queue</div>
-          <div class="pricing-feature">Everything in Free</div>
+          <div class="pricing-feature">Deeper dialogues with Lumvi</div>
+          <div class="pricing-feature">Lumvi guided conversations with your connections</div>
+          <div class="pricing-feature">Priority connection queue</div>
+          <div class="pricing-feature">Everything else in Free</div>
         </div>
         <a href="#waitlist" class="pricing-cta pricing-cta-primary">Get Early Access</a>
       </div>
 
-      <!-- Premium+ -->
+      <!-- Concierge -->
       <div class="pricing-card">
         <div>
           <div class="pricing-tag">Premium+</div>
           <div class="pricing-name">Concierge</div>
         </div>
-        <div class="pricing-price">$250 <span>/ month</span></div>
-        <p class="pricing-desc">White-glove experience for those who want it all.</p>
+        <p class="pricing-desc">White-glove experience for those who want it all</p>
         <div class="pricing-divider"></div>
         <div class="pricing-features">
-          <div class="pricing-feature">3 curated matches per month</div>
-          <div class="pricing-feature">Unlimited AI coaching</div>
-          <div class="pricing-feature">Curated date experiences</div>
-          <div class="pricing-feature">Restaurant & Uber credits</div>
-          <div class="pricing-feature">Dedicated match concierge</div>
-          <div class="pricing-feature">Everything in Premium</div>
+          <div class="pricing-feature">3 curated connections per month</div>
+          <div class="pricing-feature">Unlimited dialogues with Lumvi</div>
+          <div class="pricing-feature">Lumvi guided date experiences</div>
+          <div class="pricing-feature">Premium access to restaurants, events, & chauffeurs</div>
+          <div class="pricing-feature">Everything in premium</div>
         </div>
         <a href="#waitlist" class="pricing-cta pricing-cta-ghost">Join Waitlist</a>
       </div>
@@ -777,29 +699,29 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-btn">
-          <span class="faq-q">How is Lumvi different from Hinge or Bumble?</span>
+          <span class="faq-q">How is Lumvi different from dating apps?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Lumvi isn't a dating app — it's a matchmaking platform. You don't swipe. You don't browse. You receive 3–5 deeply vetted introductions per month, guided by an AI coach who knows your full profile. The process is slower and more intentional by design. We optimize for long-term compatibility, not engagement time.
+          Lumvi isn't a dating app. It is a platform that curates meaningful long lasting connections. You don't swipe. You don't browse. You receive 1-3 deeply vetted introductions per month, guided by an AI coach who knows your full profile. The process is slower and more intentional by design. We optimize for long-term compatibility, not engagement time.
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-btn">
-          <span class="faq-q">What is Sage, exactly?</span>
+          <span class="faq-q">What is Lumvi, exactly?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Sage is your AI matchmaking coach — a persistent conversational companion powered by Claude (Anthropic). She remembers every conversation, learns how you're emotionally wired over time, and coaches you through every stage of your journey: self-discovery, match introductions, guided conversations, and meeting in person. She's the core of the product, not an add-on.
+          Lumvi is your confidant and guide during your journey. A persistent conversational companion equipped with understanding of the latest knowledge in relationship success and longevity. They remember every dialogue, learn how you're emotionally wired over time, and guide you through every stage of your journey: self-discovery, connection introductions, guided conversations, and post-meeting check-ins. They are at the core of the service we offer.
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-btn">
-          <span class="faq-q">Why does the blind introduction last 14 days?</span>
+          <span class="faq-q">Why does the blind introduction take 7 days?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Research consistently shows that physical attraction can override deeper compatibility signals when people see a photo first. By introducing you to who someone is before how they look, you form a genuine impression grounded in values, personality, and connection. Profiles are only revealed when both sides express mutual interest — after 14 days of thoughtful introduction.
+          Research consistently shows that physical attraction can override deeper compatibility signals when people see a photo first. By introducing you to who someone is before how they look, you form a genuine impression grounded in values, personality, and connection. Profiles are only revealed when both sides express mutual interest after 7 days of thoughtful introduction.
         </div>
       </div>
       <div class="faq-item">
@@ -808,7 +730,7 @@
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          You can pass at any point in the process. If you decline after showing interest, Sage helps you write a kind and constructive message to your match. Nobody gets ghosted on Lumvi. Graceful exits are a core part of how we work.
+          You can pass at any point in the process. If you decline after showing interest, Lumvi helps you write a kind and constructive message to your connection. Nobody gets ghosted on Lumvi. Graceful exits are a core part of how we work.
         </div>
       </div>
       <div class="faq-item">
@@ -817,7 +739,7 @@
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Every member completes ID and photo verification before their profile is made available for matching. We also score profile completeness — members with incomplete profiles simply aren't shown as matches until they finish. This keeps the pool high-quality for everyone.
+          Every member completed ID and photo verification before their profile is made available for connections. We also require profile completeness — members with incomplete profiles simply aren't shown as matches until they finish. This keeps memberships high-quality for everyone.
         </div>
       </div>
       <div class="faq-item">
@@ -826,7 +748,7 @@
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Yes. Your profile, assessment data, and coaching conversations are encrypted and never sold to third parties. Personal contact information is never shared between members until both parties mutually opt into meeting in person. We take your safety seriously at every layer.
+          Yes. Your profile, assessment data, and conversations are encrypted and never sold to third parties. Personal contact information is never shared between members until both parties mutually opt into meeting in person or consent to share their information to third party providers for gifts and or event bookings. We take your safety seriously at every layer.
         </div>
       </div>
     </div>
@@ -835,7 +757,7 @@
 
 <!-- ─── CTA BANNER ────────────────────────────────────────────────────────── -->
 <section id="waitlist" class="cta-banner">
-  <h2>Ready to meet your person?</h2>
+  <h2>Ready to meet your life partner?</h2>
   <p>Join the waitlist. We'll let you know when we're ready for you.</p>
   <form class="waitlist-form" onsubmit="handleWaitlist(event)">
     <input
@@ -861,7 +783,7 @@
           <div class="nav-logo-mark">∞</div>
           Lumvi
         </a>
-        <p class="footer-tagline">A values-driven life partner platform. Find your person — not just your next date.</p>
+        <p class="footer-tagline">A values-driven life partner app. Find your person — not just your next date.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
@@ -869,7 +791,7 @@
           <ul>
             <li><a href="#features">Features</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#sage">Meet Sage</a></li>
+            <li><a href="#lumvi">Meet Lumvi</a></li>
             <li><a href="#pricing">Pricing</a></li>
           </ul>
         </div>
@@ -887,7 +809,7 @@
           <ul>
             <li><a href="#">Terms of Use</a></li>
             <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Safety</a></li>
+            <li><a href="#">Safety & Security</a></li>
           </ul>
         </div>
       </div>
@@ -895,10 +817,9 @@
     <div class="footer-bottom">
       <div class="footer-legal">© 2026 Lumvi. All rights reserved.</div>
       <div class="footer-social">
-        <a href="#" class="social-link" title="Instagram">📸</a>
-        <a href="#" class="social-link" title="TikTok">🎵</a>
+        <a href="#" class="social-link" title="Instagram">📷</a>
+        <a href="#" class="social-link" title="Facebook">f</a>
         <a href="#" class="social-link" title="YouTube">▶️</a>
-        <a href="#" class="social-link" title="X / Twitter">✖️</a>
       </div>
     </div>
   </div>
